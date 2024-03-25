@@ -1,0 +1,39 @@
+#hero-section {
+    height: calc(100vh - 61px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background: url("https://dlcdnwebimgs.asus.com/gain/af171c2a-3335-45dd-829f-8e841b6d83e4/") no-repeat;
+    background-position: 80% center;
+    background-size: 700px;
+    padding: 100px 200px;
+}
+.products-section {
+    padding: 100px;
+}
+.products-section > div {
+    display: flex;
+    overflow-x: scroll;
+}
+.products-section > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: calc((100vw - 100px) / 5);
+    padding: 20px;
+    border: 2px solid transparent;
+}
+.products-section > div > div:hover {
+    border-color: lightgray;
+}
+.products-section > div > div + div {
+    margin-left: 30px;
+}
+.products-section > div > div > * {
+    width: 100%;
+}
+.products-section > div > div > img {
+    max-width: 200px;
+}
