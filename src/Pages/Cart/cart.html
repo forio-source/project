@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/Global/Styles/global.style.css" />
+    <link rel="stylesheet" href="/src/Global/Styles/variables.style.css" />
+    <link rel="stylesheet" href="cart.css" />
+    <title>Cart</title>
+  </head>
+  <body>
+    <header>
+      <h2>Techstuff</h2>
+      <ul>
+        <li id="currentPage">Trang chủ</li>
+        <li>Điện thoại</li>
+        <li>Laptop</li>
+        <li>Màn hình</li>
+        <li>Phụ kiện</li>
+        <li>Hỗ trợ</li>
+      </ul>
+      <ul>
+        <button class="btn style2">Đăng nhập</button>
+        <button class="btn style1">Đăng ký</button>
+      </ul>
+    </header>
+
+    <!-- cart -->
+    <h1 style="text-align: center">My Shopping Cart</h1>
+    <br />
+    <div class="cart-page">
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img
+                class="cart-info-details"
+                src="https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg"
+              />
+              <div>
+                <p>iPhone 15 Pro Max</p>
+                <small> Price: 28.630.000 </small>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" /></td>
+          <td>28.630.000 VND</td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="cart-info">
+              <img
+                class="cart-info-details"
+                src="https://cdn.tgdd.vn/Products/Images/42/303891/iphone-15-plus-xanh-la-128gb-thumb-600x600.jpg"
+              />
+              <div>
+                <p>iPhone 15</p>
+                <small> Price: 22.990.000 </small>
+              </div>
+            </div>
+          </td>
+          <td><input type="number" value="1" /></td>
+          <td>22.990.000 VND</td>
+        </tr>
+      </table>
+
+      <div class="total-price">
+        <table>
+          <tr>
+            <td>Subtotal:</td>
+            <td>51.620.000 VND</td>
+          </tr>
+          <tr>
+            <td>Tax:</td>
+            <td>5.162.000 VND</td>
+          </tr>
+          <tr>
+            <td>Total:</td>
+            <td>56.782.000 VND</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
