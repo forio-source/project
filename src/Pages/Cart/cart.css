@@ -1,0 +1,56 @@
+.cart-page {
+  margin: 20px 100px;
+}
+
+table {
+  padding: 0 30 0 30;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-info {
+  display: flex;
+  flex-direction: wrap;
+}
+
+.cart-info-details {
+  padding-top: 10px;
+  padding-left: 20px;
+  height: 140px;
+}
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: #111;
+  background-color: rgb(194, 193, 193);
+}
+
+td {
+  padding: 10px 5px;
+}
+
+td input {
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price table {
+  border-top: 3px solid #111;
+  width: 100%;
+  max-width: 416px;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}
