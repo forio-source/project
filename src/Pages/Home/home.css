@@ -9,14 +9,14 @@
     background-size: 700px;
     padding: 100px 200px;
 }
-.products-section {
+#products-section {
     padding: 100px;
 }
-.products-section > div {
+#products-section > div {
     display: flex;
     overflow-x: scroll;
 }
-.products-section > div > div {
+#products-section > div > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,15 +25,19 @@
     padding: 20px;
     border: 2px solid transparent;
 }
-.products-section > div > div:hover {
+#products-section > div > div:hover {
     border-color: lightgray;
 }
-.products-section > div > div + div {
+#products-section > div > div + div {
     margin-left: 30px;
 }
-.products-section > div > div > * {
+#products-section > div > div > * {
     width: 100%;
 }
-.products-section > div > div > img {
+#products-section > div > div > img {
     max-width: 200px;
+}
+#products-section > div > div > button.claimed {
+    outline: 3px solid var(--main-color);
+    outline-offset: 2px;
 }
