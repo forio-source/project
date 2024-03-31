@@ -1,4 +1,4 @@
-export const account = {
+const account = {
     getUserData: () => {
         if (localStorage.getItem('userData') != undefined) {
             return JSON.parse(localStorage.getItem('userData'))
@@ -12,6 +12,6 @@ export const account = {
         console.log('User data saved successfully');
     }
 }
-export const link = (linkToPage) => {
+const link = (linkToPage) => {
     window.location.href = linkToPage
 }
