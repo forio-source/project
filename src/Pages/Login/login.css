@@ -10,6 +10,8 @@ form {
     border: 2px solid lightgray;
     display: flex;
     flex-direction: column;
-    margin: 50px;
     width: 350px;
+}
+form:not(.showing) {
+    display: none;
 }

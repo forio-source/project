@@ -1,5 +1,16 @@
+import {
+    doc,
+    getDoc,
+    getFirestore,
+    collection,getDocs
+} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { app, dbFirestore } from "../../contains/config.firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { auth } from "../../contains/config.firebase.js";
+
 let productSection = document.querySelectorAll("#products-section > div");
 let cart = localStorage.getItem("cart") != undefined ? JSON.parse(localStorage.getItem("cart")) : null;
+let db = getFirestore(app);
 
 productSection.forEach(each => {
     let products = each.childNodes;
@@ -39,4 +50,29 @@ productSection.forEach(each => {
             })
         }
     })
-})
+});
+
+async function getUser() {
+    let querySnapshot = await getDocs(collection(dbFirestore, "users"));
+    console.log("user> ", querySnapshot.docs);
+    querySnapshot.docs.forEach((each, index) => {
+        console.log("item> ", each.data());
+    })
+};
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        let uid = user.uid;
+        console.log(user);
+        let docRef = doc(dbFirestore, "users", uid);
+        let docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            let data = docSnap.data();
+            console.log(docSnap.data().name);
+        }
+    }
+    else {
+        // User is signed out
+        // ...
+    }
+});
+getUser();

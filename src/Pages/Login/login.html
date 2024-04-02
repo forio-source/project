@@ -10,18 +10,20 @@
     </head>
     <body>
         <div>
-            <form id="register">
+            <form id="register" class="showing">
                 <h3>Register</h3>
                 <input name="name" type="text" placeholder="Name" required>
                 <input name="email" type="email" placeholder="Email" required>
                 <input name="password" type="password" placeholder="Password" required>
                 <button type="submit" class="btn style1">Submit</button>
+                <a onclick="document.getElementById('register').className = ''; document.getElementById('login').className = 'showing'" href="javascript:void(0)">Login</a>
             </form>
             <form id="login">
                 <h3>Login</h3>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+                <input name="email" type="email" placeholder="Email" required>
+                <input name="password" type="password" placeholder="Password" required>
                 <button type="submit" class="btn style1">Submit</button>
+                <a onclick="document.getElementById('login').className = ''; document.getElementById('register').className = 'showing'" href="javascript:void(0)">Register</a>
             </form>
         </div>
         <script src="login.js" type="module"></script>

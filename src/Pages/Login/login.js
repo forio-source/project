@@ -1,8 +1,8 @@
 import { app, auth, dbFirestore } from "../../contains/config.firebase.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import {
-  collection,
-  addDoc,
+  doc,
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
 const login = document.getElementById("login");
@@ -25,14 +25,13 @@ async function registerUser(e) {
     localStorage.setItem("accessToken", user.accessToken);
 
     try {
-      const docRef = await addDoc(
-        collection(dbFirestore, "users"), {
+      await setDoc(
+        doc(dbFirestore, "users", user.uid), {
           name: name,
           email: email,
           id: user.uid,
         }
       );
-      console.log(docRef);
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +39,36 @@ async function registerUser(e) {
     alert(error.message);
   }
 }
+async function loginUser(e) {
+  e.preventDefault();
+  console.log(e.target)
+  const { target } = e;
+  console.log(target)
+  const email = target.email.value;
+  const password = target.password.value;
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const { user } = userCredential;
+    alert("ok");
+    localStorage.setItem("accessToken", user.accessToken);
+
+    if (user.accessToken != undefined) {
+      window.location = "/src/Pages/Home/home.html"
+    }
+  }
+  catch (error) {
+    alert(error.message)
+  }
+}
+
 register.addEventListener("submit", async (e) => {
   await registerUser(e);
+});
+login.addEventListener("submit", async (e) => {
+  await loginUser(e);
 });
