@@ -1,0 +1,80 @@
+.container1{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 100px;
+}
+
+.bar{
+   
+    margin: 100px 0 0 20px;
+    background-color: rgba(128, 128, 128, 0.5);
+    width: 4px;
+    height: 350px;
+    border-radius: 7px;
+}
+
+.container1 > img{
+    width: 500px;
+    height: auto;
+    margin: 100px 0 0 100px;
+    box-shadow: 0px 0px 20px 0.1px #605d5d;
+
+
+}
+
+.container1 > .text{
+    
+    width: 450px;
+    margin:100px 0 0 50px;
+}
+
+.container2{
+    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgb(235, 235, 235);
+}
+
+
+
+.container2 > .box{
+   
+    width: 90%;
+    margin-top: 20px;
+}
+
+.container2 > .box >  .text{
+    width: 60%;
+    float: left;
+}
+
+
+.container2 > .box > img{
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    float: right;
+    opacity: 0.8;
+}
+
+.container3 > h1{
+    text-align: center;
+}
+
+.container3 > ul{
+    margin: 20px 0 0 50px;
+}
+
+.container3 > ul li{
+    padding: 15px;
+    list-style-type: '✓';
+}
+
+.container3 > ul li::marker{
+    color: lime;
+    font-weight: 1000;
+    font-size: 200%;
+}
