@@ -24,6 +24,7 @@
     width: calc((100vw - 100px) / 5);
     padding: 20px;
     border: 2px solid transparent;
+    border-radius: 5px;
 }
 #products-section > div > div:hover {
     border-color: lightgray;
