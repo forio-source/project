@@ -16,6 +16,9 @@
     display: flex;
     overflow-x: scroll;
 }
+#products-section > div::-webkit-scrollbar {
+    height: 5px;
+}
 #products-section > div > div {
     display: flex;
     flex-direction: column;
