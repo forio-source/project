@@ -7,8 +7,10 @@ body {
 }
 * {
     box-sizing: border-box;
+    transition: all .1s ease;
 }
 button.btn {
+    border-radius: 5px;
     padding: 10px 15px;
     border: 2px solid transparent;
     cursor: pointer;
@@ -31,19 +33,23 @@ button.btn.style2:hover {
     border-color: var(--main-color);
     color: var(--main-color);
 }
-input {
-    padding: 15px 5px;
+input, textarea {
+    padding: 15px;
     border: none;
     border-bottom: 2px solid var(--btn-bg);
     background: none;
     font-size: 1rem;
     margin: 10px 0;
+    font-family: inherit;
+}
+textarea {
+    resize: none;
 }
 h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
 }
 h1 {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
 }
 h2 {
     font-size: 1.5rem;

@@ -1,0 +1,23 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    padding: 40px;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+body > form > * {
+    width: 100%;
+}
+body > form > textarea {
+    height: 100px;
+}

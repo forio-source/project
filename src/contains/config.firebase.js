@@ -3,11 +3,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBjstpI_fAue1KCpFd4UhopLWgq1yCqIKI",
   authDomain: "foricon-dce6c.firebaseapp.com",
   projectId: "foricon-dce6c",
+  databaseURL: "https://foricon-dce6c-default-rtdb.asia-southeast1.firebasedatabase.app",
   storageBucket: "foricon-dce6c.appspot.com",
   messagingSenderId: "704597009774",
   appId: "1:704597009774:web:169e7ddcc5a16457750d7f",

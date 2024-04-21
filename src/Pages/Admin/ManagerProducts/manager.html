@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/Global/Styles/global.style.css">
+    <link rel="stylesheet" href="/src/Global/Styles/variables.style.css">
+    <link rel="stylesheet" href="manager.css">
+</head>
+<body>
+    <form>
+        <input name="productName" type="text" placeholder="Name">
+        <input name="productPrice" type="number" placeholder="Price" min="1">
+        <input name="productImage" type="file" accept="image/*">
+        <textarea name="productDescription" placeholder="Enter your description"></textarea>
+        <button type="submit" class="btn style1">Create product</button>
+    </form>
+    <script src="manager.js" type="module"></script>
+    <script src="/src/contains/config.firebase.js" type="module"></script>
+</body>
+</html>
