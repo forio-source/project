@@ -11,6 +11,9 @@ import { auth } from "../../contains/config.firebase.js";
 let productSection = document.querySelectorAll("#products-section > div");
 let cart = localStorage.getItem("cart") != undefined ? JSON.parse(localStorage.getItem("cart")) : null;
 let db = getFirestore(app);
+let productInfo = document.getElementById("product-info");
+let productImg = productInfo.querySelector("img");
+let productName = productInfo.querySelector("h2");
 
 productSection.forEach(each => {
     let products = each.childNodes;
@@ -19,6 +22,12 @@ productSection.forEach(each => {
             let name = option.querySelector("h5").innerText;
             let image = option.querySelector("img").src;
             let btn = option.querySelector("button");
+
+            option.addEventListener('click', () => {
+                productInfo.classList.add("active");
+                productName.innerText = name;
+                productImg.src = image;
+            })
 
             if (cart != null) {
                 for (let i = 0; i < cart.length; i++) {

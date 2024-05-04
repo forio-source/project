@@ -1,3 +1,28 @@
+#product-info {
+    position: fixed;
+    display: grid;
+    inset: 0;
+    background-color: white;
+    padding: 150px;
+    gap: 30px;
+    grid-template-columns: 300px auto;
+}
+#product-info:not(.active) {
+    opacity: 0;
+    scale: .9;
+    pointer-events: none;
+}
+#product-info > button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: block;
+    width: fit-content;
+    margin: 0;
+}
+#product-info > img {
+    max-width: 300px;
+}
 #hero-section {
     height: calc(100vh - 61px);
     display: flex;

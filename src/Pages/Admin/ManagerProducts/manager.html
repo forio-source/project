@@ -9,13 +9,28 @@
     <link rel="stylesheet" href="manager.css">
 </head>
 <body>
+    <div id="header">
+        <h3>Products manager</h3>
+        <button class="btn style1" onclick="document.querySelector('form').classList.toggle('active')">Add product</button>
+    </div>
     <form>
-        <input name="productName" type="text" placeholder="Name">
-        <input name="productPrice" type="number" placeholder="Price" min="1">
+        <input name="productName" type="text" placeholder="Name" required>
+        <input name="productPrice" type="number" placeholder="Price" min="1" required>
+        <input name="inStock" type="number" placeholder="In stock" min="1" required>
         <input name="productImage" type="file" accept="image/*">
         <textarea name="productDescription" placeholder="Enter your description"></textarea>
         <button type="submit" class="btn style1">Create product</button>
     </form>
+    <table id="list" cellspacing="0">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>In stock</th>
+            <th>On sale</th>
+            <th></th>
+        </thead>
+        <tbody></tbody>
+    </table>
     <script src="manager.js" type="module"></script>
     <script src="/src/contains/config.firebase.js" type="module"></script>
 </body>
