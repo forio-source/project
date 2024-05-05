@@ -27,14 +27,41 @@ onValue(ref(db, "product/"), (snap) => {
     for (const key in data) {
         let tr = document.createElement("tr");
         tr.innerHTML = `
-            <td>${data[key].name}</td>
-            <td>${data[key].price} USD</td>
+            <td contenteditable>${data[key].name}</td>
+            <td contenteditable>${data[key].price} USD</td>
             <td contenteditable>${data[key].inStock}</td>
             <td><input type="checkbox" ${data[key].onSale ? "checked" : ""}></td>
             <td style="cursor: pointer" name="delete">Delete</td>
             `;
         if (data[key].inStock == 0) {console.log(`"${data[key].name}" is ran out of stock`);}
-        tr.querySelector("[contenteditable]").addEventListener("keyup", async (e) => {
+        tr.querySelector("[contenteditable]:nth-child(1)").addEventListener("keyup", async (e) => {
+            let { target } = e;
+            if (e.key == "Enter") {
+                await set(ref(db, `product/${key}`), {name: target.innerText, price: data[key].price, inStock: data[key].inStock, onSale: data[key].onSale, image: data[key].image, description: data[key].description});
+                location.reload();
+            }
+        });
+        tr.querySelector("[contenteditable]:nth-child(2)").addEventListener("keyup", async (e) => {
+            let { target } = e;
+            target.style.color = "";
+            if (target.innerText == "") {
+                console.error("Valid number is required");
+                target.style.color = "tomato";
+            }
+            else if (isNaN(target.innerText)) {
+                console.error("This is not a number");
+                target.style.color = "tomato";
+            }
+            else if (target.innerText < 0) {
+                console.error("Number cannot be negative");
+                target.style.color = "tomato";
+            }
+            else if (e.key == "Enter") {
+                await set(ref(db, `product/${key}`), {name: data[key].name, price: target.innerText, inStock: data[key].inStock, onSale: data[key].onSale, image: data[key].image, description: data[key].description});
+                location.reload();
+            }
+        });
+        tr.querySelector("[contenteditable]:nth-child(3)").addEventListener("keyup", async (e) => {
             let { target } = e;
             target.style.color = "";
             if (target.innerText == "") {
