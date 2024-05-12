@@ -1,80 +1,175 @@
 .container1{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-bottom: 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 70px;
 }
-
-.bar{
-   
-    margin: 100px 0 0 20px;
-    background-color: rgba(128, 128, 128, 0.5);
-    width: 4px;
-    height: 350px;
-    border-radius: 7px;
-}
-
 .container1 > img{
-    width: 500px;
-    height: auto;
-    margin: 100px 0 0 100px;
-    box-shadow: 0px 0px 20px 0.1px #605d5d;
-
-
+    width: 40vw;
+    border-radius: 10px;
+}
+.container1 > .text > p {
+    line-height: 1.75;
 }
 
 .container1 > .text{
-    
-    width: 450px;
-    margin:100px 0 0 50px;
+    margin-left: 50px;
 }
-
-.container2{
-    
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
+.container2 {
+    padding: 30px max(100px, 15%);
     background-color: rgb(235, 235, 235);
 }
-
-
-
-.container2 > .box{
-   
-    width: 90%;
-    margin-top: 20px;
+.container2 > h1 {
+    text-align: center;
 }
-
+.container2 > .box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
+}
 .container2 > .box >  .text{
     width: 60%;
-    float: left;
 }
-
 
 .container2 > .box > img{
     width: 250px;
     height: 200px;
     border-radius: 50%;
-    float: right;
     opacity: 0.8;
 }
 
+.container3 {
+    padding: 70px 100px 100px;
+}
 .container3 > h1{
     text-align: center;
 }
 
 .container3 > ul{
-    margin: 20px 0 0 50px;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: max(20px, 3vw);
+    padding: 0;
 }
 
-.container3 > ul li{
-    padding: 15px;
-    list-style-type: '✓';
+.container3 > ul > li{
+    background-color: lightgray;
+    padding: 25px 30px;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
-.container3 > ul li::marker{
-    color: lime;
-    font-weight: 1000;
-    font-size: 200%;
+footer:after {
+        content: "";
+        display: table;
+        clear: both;
+}
+
+.col{
+    float: left;
+    padding: 10px;
+    height:380px;
+    background-color: rgb(40, 40, 40)   
+}
+
+.col:nth-child(1){   
+    width:30%
+}
+
+.col:nth-child(2){    
+    width: 20%;
+}
+
+.col:nth-child(3){    
+    width: 20%;
+}
+
+.col:nth-child(4){    
+    width: 30%;
+}
+
+.col > h2, .col:nth-child(1) > p{
+    color:white;
+    width:80%;
+    padding-left: 25px;
+}
+
+.col:nth-child(1) > a{
+    color:white;
+    font-size: 2.5em;
+    padding: 10px 0 0 5px;
+}
+
+.col:nth-child(2) > ul{
+    color:white;
+    font-size: 1.25em;
+    line-height: 2;
+    
+}
+
+.col:nth-child(2) > li{
+    padding: 5px;
+}
+
+.col:nth-child(3) > ul{
+    color:white;
+    font-size: 1.25em;
+    line-height: 2; 
+}
+
+.col:nth-child(3) > li{
+    padding: 5px;
+}
+
+.col:nth-child(4) > a > i{
+    padding: 5px 10px 20px 20px;
+    color: white;
+    font-size: 1.5em;
+}
+
+.col:nth-child(4) > a > span{
+    color: white;
+}
+
+.col > a:hover{
+    color: blue;  
+    cursor: pointer;
+}
+
+.col > ul > li > a:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.col:nth-child(4) > a > span:hover {
+    color:blue;
+    cursor: pointer;
+}
+
+.container4 {
+    padding: 50px 15%;
+}
+.container4 > form {
+    display: grid;
+    gap:20px;
+    grid-template-areas: "name name email email"
+    "message message message message"
+    "blank blank blank send";
+}
+.container4 > form > input[name="name"] {
+    grid-area: name;
+}
+.container4 > form > input[name="email"] {
+    grid-area: email;
+}
+.container4 > form > textarea {
+    grid-area: message;
+    height: 200px;
+}
+.container4 > form > button {
+    grid-area: send;
 }
