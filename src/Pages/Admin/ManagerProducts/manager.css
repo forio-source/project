@@ -46,8 +46,14 @@ table th {
     padding: 5px 50px;
 }
 table td {
-    width: 25%;
     padding: 10px 50px;
+}
+table td:first-child {
+    width: 40%;
+    text-align: left;
+}
+table td:nth-child(2) {
+    width: auto;
 }
 table > thead {
     background-color: lightgray;
