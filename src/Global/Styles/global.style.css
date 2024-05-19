@@ -68,10 +68,10 @@ h6 {
 }
 
 header {
-    padding: 0 50px;
+    padding: 0 max(50px, 5%);
     display: grid;
     align-items: center;
-    grid-template-columns: 97.3px auto 202.14px;
+    grid-template-columns: 97.3px auto max-content;
     gap: 30px;
     border-bottom: 1px solid rgb(240, 240, 240);
 }

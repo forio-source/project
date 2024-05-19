@@ -1,0 +1,80 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    transition: all .1s ease, translate .3s ease, scale .3s ease;
+}
+form:not(.active) {
+    scale: 1 0;
+    translate: 0 -50%;
+}
+form > * {
+    width: 100%;
+}
+form > textarea {
+    height: 100px;
+}
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+table td:first-child {
+    width: 25%;
+    text-align: left;
+}
+table td:is(:nth-child(2), :nth-child(3), :last-child) {
+    cursor: pointer;
+}
+table td > img {
+    max-height: 30px;
+}
+
+#edit {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#edit:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}
+#edit > div {
+    background-color: white;
+    padding: 30px 35px;
+    border-radius: 10px;
+}
+#edit:not(.active) > div {
+    scale: .8;
+}
+#edit > div:not(#image) > input {
+    display: none;
+}
+#edit > div:not(#description) > textarea {
+    display: none;
+}
+#edit > div > :is(textarea, input) {
+    display: block;
+    width: 400px;
+}
+#edit > div > textarea {
+    height: 150px;
+}
+#edit > div > button {
+    float: right;
+}
+#edit > div > button + button {
+    margin-right: 5px;
+}

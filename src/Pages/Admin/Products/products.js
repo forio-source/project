@@ -1,9 +1,10 @@
 import { getDatabase, ref, set, remove, onValue } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
 import { app } from "../../../contains/config.firebase.js";
-const form = document.querySelector("form");
-const db = getDatabase(app);
-const list = document.getElementById("list");
-const listBody = list.querySelector("tbody")
+let form = document.querySelector("form");
+let db = getDatabase(app);
+let list = document.getElementById("list");
+let listBody = list.querySelector("tbody");
+let edit = document.getElementById("edit");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -22,17 +23,22 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
+edit.querySelector("button.style2").addEventListener("click", () => {
+    edit.className = "";
+})
 onValue(ref(db, "product/"), (snap) => {
     const data = snap.val();
     for (const key in data) {
         let tr = document.createElement("tr");
         tr.innerHTML = `
             <td contenteditable>${data[key].name}</td>
+            <td name="description">Edit</td>
+            <td name="image"><img src="${data[key].image}"/></td>
             <td contenteditable>${data[key].price} USD</td>
             <td contenteditable>${data[key].inStock}</td>
             <td><input type="checkbox" ${data[key].onSale ? "checked" : ""}></td>
-            <td style="cursor: pointer" name="delete">Delete</td>
-            `;
+            <td name="delete">Delete</td>
+        `;
         if (data[key].inStock == 0) {console.log(`"${data[key].name}" is ran out of stock`);}
         tr.querySelector("[contenteditable]:nth-child(1)").addEventListener("keyup", async (e) => {
             let { target } = e;
@@ -41,7 +47,7 @@ onValue(ref(db, "product/"), (snap) => {
                 location.reload();
             }
         });
-        tr.querySelector("[contenteditable]:nth-child(2)").addEventListener("keyup", async (e) => {
+        tr.querySelector("[contenteditable]:nth-child(4)").addEventListener("keyup", async (e) => {
             let { target } = e;
             target.style.color = "";
             if (target.innerText == "") {
@@ -61,7 +67,7 @@ onValue(ref(db, "product/"), (snap) => {
                 location.reload();
             }
         });
-        tr.querySelector("[contenteditable]:nth-child(3)").addEventListener("keyup", async (e) => {
+        tr.querySelector("[contenteditable]:nth-child(5)").addEventListener("keyup", async (e) => {
             let { target } = e;
             target.style.color = "";
             if (target.innerText == "") {
@@ -86,6 +92,17 @@ onValue(ref(db, "product/"), (snap) => {
             else {data[key].onSale = false}
             await set(ref(db, `product/${key}`), {name: data[key].name, price: data[key].price, inStock: data[key].inStock, onSale: data[key].onSale, image: data[key].image, description: data[key].description});
             location.reload();
+        });
+        tr.querySelector("[name='description']").addEventListener("click", async (e) => {
+            edit.className = "active";
+            edit.querySelector("div").id = "description";
+            edit.querySelector("h4").innerText = "Description";
+            edit.querySelector("textarea").innerText = data[key].description;
+        });
+        tr.querySelector("[name='image']").addEventListener("click", async (e) => {
+            edit.className = "active";
+            edit.querySelector("div").id = "image";
+            edit.querySelector("h4").innerText = "Image";
         });
         tr.querySelector("[name='delete']").addEventListener("click", async (e) => {
             if (confirm(`Do you want to delete "${data[key].name}"?`)) {

@@ -1,0 +1,60 @@
+body {
+    padding: 50px max(60px, 10vw);
+}
+table {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+table th {
+    padding: 5px 30px;
+}
+table td {
+    width: max-content;
+    padding: 10px 30px;
+}
+table > thead {
+    background-color: lightgray;
+    border: none;
+}
+h3 > span {
+    cursor: pointer;
+}
+
+#sidebar {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    inset: 0;
+    z-index: 1;
+}
+#sidebar:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+}
+#sidebar > div {
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    transition: all .1s ease, translate .3s ease;
+}
+#sidebar:not(.active) > div {
+    translate: -100%;
+}
+#sidebar > div > ul {
+    list-style: none;
+    padding: 0;
+}
+#sidebar > div > ul > li {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+#sidebar > div > ul > li:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

@@ -6,10 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="/src/Global/Styles/variables.style.css">
     <link rel="stylesheet" href="/src/Global/Styles/global.style.css">
+    <link rel="stylesheet" href="../admin.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <h3>Dashboard</h3>
+    <div id="sidebar">
+        <div>
+            <button class="btn style1" onclick="document.getElementById('sidebar').className = ''">Close</button>
+            <ul>
+                <li onclick="link('/src/Pages/Admin/Dashboard/dashboard.html')">Dashboard</li>
+                <li onclick="link('/src/Pages/Admin/Products/products.html')">Products</li>
+                <li onclick="link('/src/Pages/Home/home.html')">Back to Home</li>
+            </ul>
+        </div>
+    </div>
+    <h3><span onclick="document.getElementById('sidebar').className = 'active'">></span> Dashboard</h3>
     <table cellspacing="0">
         <thead>
             <th>Name</th>
@@ -17,15 +28,9 @@
             <th>Actions</th>
         </thead>
         <tbody>
-            <tr>
-                <td>plus</td>
-                <td>plus@gmail.com</td>
-                <td>
-                    <button class="btn style1">Delete</button>
-                </td>
-            </tr>
         </tbody>
     </table>
-    <script src="dashboard.js"></script>
+    <script src="/src/Global/JavaScript/module.js"></script>
+    <script src="dashboard.js" type="module"></script>
 </body>
 </html>
